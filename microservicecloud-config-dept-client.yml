@@ -1,0 +1,83 @@
+﻿spring:
+  profiles:
+    active: dev
+   
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.139.132:3306/clouddb01
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.whut.springcloud
+  mapper-locations:
+   - classpath:mybatis/mapper/**/*.xml
+eureka:
+ client:
+  service: 
+   defaultZone: http://eureka7001.com:7001/eureka
+   
+  instance:
+  instance-id: microservicecloud-dept8001 #自定义服务名称信息
+  prefer-ip-address: true #访问路径就显示ip地址
+    
+    
+info:
+ app.name: com.whut.microservicecloud
+ company.name: www.atguigu.com
+ build.artifactId: $project.artifactId$
+ build.version: $project.version$
+ 
+ 
+---
+server:
+  port: 8001
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-dept-client
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://192.168.139.132:3306/clouddb01
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.whut.springcloud
+  mapper-locations:
+   - classpath:mybatis/mapper/**/*.xml
+eureka:
+ client:
+  service: 
+   defaultZone: http://eureka7001.com:7001/eureka
+   
+  instance:
+  instance-id: microservicecloud-dept8001 #自定义服务名称信息
+  prefer-ip-address: true #访问路径就显示ip地址
+    
+    
+info:
+ app.name: com.whut.microservicecloud
+ company.name: www.atguigu.com
+ build.artifactId: $project.artifactId$
+ build.version: $project.version$
+ 
